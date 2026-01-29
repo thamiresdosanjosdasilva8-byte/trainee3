@@ -46,3 +46,5 @@ postgres-data/
 *.tmp
 *.temp
 ~$*
+node_modules/
+desktop.ini

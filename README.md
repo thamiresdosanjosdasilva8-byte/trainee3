@@ -1,24 +1,38 @@
-# Projeto Trainee3
+# Tarefa 04 - API Node.js
 
-Este repositório faz parte dos projetos desenvolvidos para a FGV.
+Thamires dos Anjos da Silva
 
-## Como usar
-1. Clone o repositório:
-   ```bash
-   git clone <url-do-repositorio>
-   ```
-2. Navegue até a pasta do projeto:
-   ```bash
-   cd trainee2
-   ```
-3. Siga as instruções específicas de cada módulo ou script conforme necessário.
+##  Descrição
+API desenvolvida em Node.js como parte da Tarefa 04 .
 
-## Requisitos
-- Certifique-se de ter o [Git](https://git-scm.com/) instalado.
-- Outros requisitos podem ser adicionados conforme o projeto evolui.
+##  Tecnologias utilizadas
+- Node.js
+- Express
 
-## Contribuição
-Sinta-se à vontade para abrir issues ou enviar pull requests.
+##  Como executar o projeto
 
-## Licença
-Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+A API trabalha com a entidade livros.
+
+Rotas implementadas
+
+GET /item 
+Lista todos os items cadastrados.
+
+GET /items/:id
+Retorna um item específico pelo ID.
+
+POST /items
+Cria um novo item.
+
+PUT /items/:id 
+Atualiza um item existente.
+
+DELETE /items/:id
+Remove um item pelo ID.
+
+Como executar o projeto node index.js
+
+
+node index.js
+
+rodar http://localhost:3000/livros
