@@ -1,45 +1,47 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
+import { createDatabaseConnection } from '../bancoDados/database';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
-export class UserService {
-  constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
-  ) {}
+export class UsersService {
 
-  async create(createUserDto: CreateUserDto): Promise<User> {
-    const user = this.userRepository.create(createUserDto);
-    return this.userRepository.save(user);
+  async create(createUserDto: CreateUserDto) {
+    const db = await createDatabaseConnection();
+
+    const result = await db.run(
+      'INSERT INTO users (name, email) VALUES (?, ?)',
+      [createUserDto.name, createUserDto.email]
+    );
+
+    return {
+      id: result.lastID,
+      ...createUserDto,
+    };
   }
 
-  async findAll(): Promise<User[]> {
-    return this.userRepository.find();
+  async findAll() {
+    const db = await createDatabaseConnection();
+    return db.all('SELECT * FROM users');
   }
 
-  async findOne(id: number): Promise<User> {
-  const user = await this.userRepository.findOneBy({ id });
-
-  if (!user) {
-    throw new Error(`Usuário com id ${id} não encontrado`);
+  async findOne(id: number) {
+    const db = await createDatabaseConnection();
+    return db.get('SELECT * FROM users WHERE id = ?', [id]);
   }
 
-  return user;
-}
+  async update(id: number, updateUserDto: any) {
+    const db = await createDatabaseConnection();
 
-  async update(
-    id: number,
-    updateUserDto: UpdateUserDto,
-  ): Promise<User> {
-    await this.userRepository.update(id, updateUserDto);
+    await db.run(
+      'UPDATE users SET name = ?, email = ? WHERE id = ?',
+      [updateUserDto.name, updateUserDto.email, id]
+    );
+
     return this.findOne(id);
   }
 
-  async remove(id: number): Promise<void> {
-    await this.userRepository.delete(id);
+  async remove(id: number) {
+    const db = await createDatabaseConnection();
+    await db.run('DELETE FROM users WHERE id = ?', [id]);
   }
 }
