@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
@@ -97,3 +98,43 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+=======
+# Tarefa 04 - API Node.js
+
+Thamires dos Anjos da Silva
+
+##  Descrição
+API desenvolvida em Node.js como parte da Tarefa 04 .
+
+##  Tecnologias utilizadas
+- Node.js
+- Express
+
+##  Como executar o projeto
+
+A API trabalha com a entidade livros.
+
+Rotas implementadas
+
+GET /item 
+Lista todos os items cadastrados.
+
+GET /items/:id
+Retorna um item específico pelo ID.
+
+POST /items
+Cria um novo item.
+
+PUT /items/:id 
+Atualiza um item existente.
+
+DELETE /items/:id
+Remove um item pelo ID.
+
+Como executar o projeto node index.js
+
+
+node index.js
+
+rodar http://localhost:3000/livros
+>>>>>>> 049dec9efba88059f1a6a13b6b99f5e7ae891550

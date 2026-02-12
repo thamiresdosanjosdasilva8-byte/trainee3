@@ -1,10 +1,53 @@
+# Sistema Operacional: Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Node.js/TypeScript
 node_modules/
-.env
 dist/
+build/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.*
+*.local
 *.log
-*.sqlite
+
+# Angular
+.angular/cache/
+.angular/config.json
+
+# NestJS
+*.js
+*.js.map
+*.d.ts
+.idea/
+
+# VSCode
+.vscode/
+.history/
+
+# Postgres
+*.sql
+*.dump
+pgdata/
+postgres-data/
+
+# Outros
+.DS_Store
+*.swp
+*.swo
+
+# Arquivos temporários
+*.tmp
+*.temp
+~$*
+node_modules/
+desktop.ini
 *.sqlite3
 database.sqlite
 .cache/
-
-ls
